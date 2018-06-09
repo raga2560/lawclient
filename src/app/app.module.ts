@@ -12,6 +12,7 @@ import { SignupPage } from '../pages/signup-page/signup-page';
 import { DealerRegisterPage } from '../pages/dealer-register/dealer-register';
 import { PartyRegisterPage } from '../pages/party-register/party-register';
 import { Todos } from '../providers/todos';
+import { Contract } from '../providers/contract';
 import { Auth } from '../providers/auth';
 
 
@@ -60,6 +61,7 @@ import { PartysettingPageModule } from '../pages/partysetting/partysetting.modul
     StatusBar,
     SplashScreen,
     Todos, 
+    Contract,
     Auth,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

@@ -20,7 +20,6 @@ export class ContractIssuePage {
   balance: any;
   loading: any;
   contractdata: any;
-     this.numberofparties = 1;
 
   constructor(public navCtrl: NavController, public contractService: Contract, 
               public loadingCtrl: LoadingController,
@@ -32,6 +31,7 @@ export class ContractIssuePage {
 	    contractvalue: '',
             contractpin: ''
        };
+     this.numberofparties = 1;
   }
 
   ionViewDidLoad() {
@@ -79,9 +79,5 @@ export class ContractIssuePage {
 
   
   
-  }
-
-
-
   
 }

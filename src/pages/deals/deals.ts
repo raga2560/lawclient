@@ -17,18 +17,20 @@ import { Contract } from '../../providers/contract';
 export class DealsPage {
 
   numberofparties : Number;
-  contracts: any;
+  contracts: Array<any>;
   contract: any;
   balance: any;
   loading: any;
   contractdata: any;
   contractid : any;
+  dealerid : any;
 
   constructor(public navCtrl: NavController, public contractService: Contract, 
               public loadingCtrl: LoadingController,
               public navParams: NavParams) {
 
-       this.contractid = navParams.data.contractid;
+//       this.contractid = navParams.data.contractid;
+       this.contracts = [];
   }
 
   ionViewDidLoad() {
@@ -50,7 +52,7 @@ export class DealsPage {
     this.showLoader();
 
    var dealer = {
-        dealerid: this.dealerid;
+        dealerid: this.dealerid
    };
    this.contractService.getContracts(dealer).then((result) => {
                 this.loading.dismiss();

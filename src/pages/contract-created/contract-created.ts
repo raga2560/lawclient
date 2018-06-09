@@ -50,7 +50,7 @@ export class ContractCreatedPage {
     this.showLoader();
 
    var contractdata = {
-        contractid: this.contractid;
+        contractid: this.contractid
    };
    this.contractService.getContract(contractdata).then((result) => {
                 this.loading.dismiss();
@@ -63,10 +63,5 @@ export class ContractCreatedPage {
   }
 
   
-  
-  }
-
-
-
   
 }

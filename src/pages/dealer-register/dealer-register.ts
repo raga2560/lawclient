@@ -10,6 +10,7 @@ import { HomePage } from '../home/home';
 export class DealerRegisterPage {
 
   role: string;
+  dealertype: string;
   email: string;
   password: string;
   loading : any;
@@ -31,13 +32,14 @@ export class DealerRegisterPage {
   	let details = {
   	    email: this.email,
   	    password: this.password,
-  	    role: this.role
+  	    dealertype: this.dealertype,
+  	    role: 'dealer'
   	};
 
   	this.authService.createAccount(details).then((result) => {
       this.loading.dismiss();
       console.log(result);
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot('DealsPage');
   	}, (err) => {
   		this.loading.dismiss();
   	});
