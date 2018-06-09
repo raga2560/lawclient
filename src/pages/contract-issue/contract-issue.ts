@@ -42,9 +42,12 @@ export class ContractIssuePage {
      this.aggrement = '';
       this.parties = [];
       var party = {
-          partyid: 'dealer'
+          partyid: 'dealer',
           userid: 'surya',
-          percentage: 10
+          percentage: 10,
+          pinsent: false,
+          pinreceived: false,
+          pinprovided: false
       };
       this.parties.push(party);
 
@@ -70,7 +73,11 @@ export class ContractIssuePage {
       var party = {
           partyid: this.partyid,
           userid: this.userid,
-          percentage: this.percentage
+          percentage: this.percentage,
+          pinsent: false,
+          pinreceived: false,
+          pinprovided: false
+
       };
 
       this.parties.push(party);
