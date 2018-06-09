@@ -18,7 +18,7 @@ export class Contract {
 
   getContracts(dealer){
 
-    var tryurl = this.url + '/api/contract/getContracts' 
+    var tryurl = this.url + '/api/contract/getcontracts' 
     return new Promise((resolve, reject) => {
 
       let headers = new Headers();

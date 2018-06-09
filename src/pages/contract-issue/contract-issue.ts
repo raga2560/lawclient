@@ -41,6 +41,13 @@ export class ContractIssuePage {
      this.depositaddress = '';
      this.aggrement = '';
       this.parties = [];
+      var party = {
+          partyid: 'dealer'
+          userid: 'surya',
+          percentage: 10
+      };
+      this.parties.push(party);
+
   }
 
   ionViewDidLoad() {

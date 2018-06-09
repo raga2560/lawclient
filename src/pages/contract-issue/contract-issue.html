@@ -39,7 +39,7 @@
             List of parties
         </ion-item-divider>
         <ion-item *ngFor="let party of parties; let i = index ;">
-           Party: {{i }} = {{party.userid}}
+           Party: {{party.partyid }} = {{party.userid}}, {{party.percentage}}%
         </ion-item>
         <ion-item>
             <ion-input type="text" [(ngModel)]="depositaddress" placeholder="Deposit address"></ion-input>

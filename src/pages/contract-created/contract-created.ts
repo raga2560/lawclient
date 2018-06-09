@@ -28,7 +28,12 @@ export class ContractCreatedPage {
               public loadingCtrl: LoadingController,
               public navParams: NavParams) {
 
-       this.contractid = navParams.data.contractid;
+       this.contract = null;
+       if(typeof this.navParams.data.contract == "undefined")
+       {
+	  this.navCtrl.push('DealsPage');
+       }
+       this.contract = this.navParams.data.contract;
   }
 
   ionViewDidLoad() {
@@ -54,7 +59,7 @@ export class ContractCreatedPage {
    };
    this.contractService.getContract(contractdata).then((result) => {
                 this.loading.dismiss();
-                this.contract = result;
+//                this.contract = result;
                                         console.log("contract created");
                                 }, (err) => {
                 this.loading.dismiss();

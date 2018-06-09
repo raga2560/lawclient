@@ -29,12 +29,14 @@ export class DealsPage {
               public loadingCtrl: LoadingController,
               public navParams: NavParams) {
 
-//       this.contractid = navParams.data.contractid;
-       this.contracts = [];
+         this.dealerid = 'surya';
+         this.contracts = [];
+         //this.getContracts();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContractIssuePage');
+    this.getContracts();
   }
 
   showLoader(){
@@ -46,7 +48,16 @@ export class DealsPage {
     this.loading.present();
 
   }
-  
+  refresh()
+  {
+    this.getContracts();
+  }
+ 
+  selectContract(contract) 
+  {
+    this.navCtrl.push('ContractCreatedPage', {contract: contract});
+     
+  } 
 
   getContracts() {
     this.showLoader();
@@ -57,16 +68,18 @@ export class DealsPage {
    this.contractService.getContracts(dealer).then((result) => {
                 this.loading.dismiss();
                 console.log(result);
-                //this.contracts = result;
+                if(result instanceof Array && result.length > 0) {
+                   this.contracts = result;
+                }
+                else {
+
+                   this.contracts = [];
+                }
                                 }, (err) => {
                 this.loading.dismiss();
+                   this.contracts = [];
                                 });
   }
-
-  
-  
-
-
 
   
 }

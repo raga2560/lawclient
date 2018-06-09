@@ -10,21 +10,46 @@
       <ion-icon name="menu"></ion-icon>
     </button>
   <ion-title>
-    Contract Created
+    Smart Contract Created
   </ion-title>
  </ion-navbar>
 </ion-header>
 
 
 
+<ion-content padding>
+     <div *ngIf="contract != null">
 <ion-item>
-   SMS has been sent to parties.
-   <button> ASK confirmation of receipt </button>
+   SMS has been sent to parties with PINs.
+   <button item-right ion-button color="primary" > ASK confirmation of receipt </button>
 </ion-item>
 <ion-item>
-  Address to track contract: xxxxxx
+  Contract id: {{contract.contractid}}
+</ion-item>
+<ion-item>
+  Deposit Address for contract: {{contract.depositaddress}}
+</ion-item>
+<ion-item>
+  Address to track contract: {{contract.depositaddress}}
 </ion-item>
 
-<ion-content padding>
+    <ion-item-divider color="primary">
+            List of parties
+        </ion-item-divider>
+        <ion-item *ngFor="let party of contract.parties; let i = index ;">
+           Party: {{i }} = {{party.userid}}, {{party.percentage}}%
+        </ion-item>
+    <ion-item-divider color="primary">
+            Instruction to parties
+        </ion-item-divider>
+<ion-item>
+  PINs are part of blockchain address. The money in the address can be claimed, if each party provides the PIN correctly.
+</ion-item>
+<ion-item>
+  If any of the party does not provide the PIN, none of the party can get the funds. The money in returned back to the source.
+</ion-item>
+     </div>
+
+
 
 </ion-content>
