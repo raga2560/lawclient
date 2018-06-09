@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Contract } from '../../providers/contract';
 
 /**
- * Generated class for the CouponIssuePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,13 +15,73 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ContractIssuePage {
   numberofparties : Number;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  contracts: any;
+  contract: any;
+  balance: any;
+  loading: any;
+  contractdata: any;
      this.numberofparties = 1;
+
+  constructor(public navCtrl: NavController, public contractService: Contract, 
+              public loadingCtrl: LoadingController,
+              public navParams: NavParams) {
+
+       this.contractdata = {
+            contractid: '',
+            contracttype: '',
+	    contractvalue: '',
+            contractpin: ''
+       };
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CouponIssuePage');
+    console.log('ionViewDidLoad ContractIssuePage');
   }
 
+  showLoader(){
+
+    this.loading = this.loadingCtrl.create({
+      content: 'Working...'
+    });
+
+    this.loading.present();
+
+  }
+  
+  contractCreate() {
+    this.showLoader();
+
+   this.contractService.createContract(this.contractdata).then((result) => {
+                this.loading.dismiss();
+                this.contract = result;
+                                        console.log("contract created");
+                                }, (err) => {
+                this.loading.dismiss();
+                                        console.log("not allowed"+ err);
+                                });
+  }
+
+  getContract() {
+    this.showLoader();
+
+   var contractdata = {
+        name: 'test'
+   };
+   this.contractService.getContract(contractdata).then((result) => {
+                this.loading.dismiss();
+                this.contract = result;
+                                        console.log("contract created");
+                                }, (err) => {
+                this.loading.dismiss();
+                                        console.log("not allowed"+ err);
+                                });
+  }
+
+  
+  
+  }
+
+
+
+  
 }

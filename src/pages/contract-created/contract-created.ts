@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Contract } from '../../providers/contract';
 
 /**
  * Generated class for the ContractCreatedPage page.
@@ -15,11 +16,57 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ContractCreatedPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  numberofparties : Number;
+  contracts: any;
+  contract: any;
+  balance: any;
+  loading: any;
+  contractdata: any;
+  contractid : any;
+
+  constructor(public navCtrl: NavController, public contractService: Contract, 
+              public loadingCtrl: LoadingController,
+              public navParams: NavParams) {
+
+       this.contractid = navParams.data.contractid;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ContractCreatedPage');
+    console.log('ionViewDidLoad ContractIssuePage');
   }
 
+  showLoader(){
+
+    this.loading = this.loadingCtrl.create({
+      content: 'Working...'
+    });
+
+    this.loading.present();
+
+  }
+  
+
+  getContract() {
+    this.showLoader();
+
+   var contractdata = {
+        contractid: this.contractid;
+   };
+   this.contractService.getContract(contractdata).then((result) => {
+                this.loading.dismiss();
+                this.contract = result;
+                                        console.log("contract created");
+                                }, (err) => {
+                this.loading.dismiss();
+                                        console.log("not allowed"+ err);
+                                });
+  }
+
+  
+  
+  }
+
+
+
+  
 }
