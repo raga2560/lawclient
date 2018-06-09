@@ -20,6 +20,12 @@ export class ContractIssuePage {
   balance: any;
   loading: any;
   contractdata: any;
+  partyid: any;
+  userid: any;
+  percentage: any;
+  depositaddress: any;
+  aggrement: any;
+  parties: Array<any>;
 
   constructor(public navCtrl: NavController, public contractService: Contract, 
               public loadingCtrl: LoadingController,
@@ -32,6 +38,9 @@ export class ContractIssuePage {
             contractpin: ''
        };
      this.numberofparties = 1;
+     this.depositaddress = '';
+     this.aggrement = '';
+      this.parties = [];
   }
 
   ionViewDidLoad() {
@@ -47,13 +56,33 @@ export class ContractIssuePage {
     this.loading.present();
 
   }
+
+
+  saveParty()
+  {
+      var party = {
+          partyid: this.partyid,
+          userid: this.userid,
+          percentage: this.percentage
+      };
+
+      this.parties.push(party);
+  }
   
-  contractCreate() {
+  createContract() {
     this.showLoader();
+    this.contractdata = {
+     user: 'surya',
+     depositaddress: this.depositaddress,
+     parties: this.parties,
+     aggrement: '',
+     details: ''
+    };
 
    this.contractService.createContract(this.contractdata).then((result) => {
                 this.loading.dismiss();
                 this.contract = result;
+                this.navCtrl.push('DealsPage');
                                         console.log("contract created");
                                 }, (err) => {
                 this.loading.dismiss();

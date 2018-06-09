@@ -16,7 +16,7 @@ export class Contract {
 
   }
 
-  getContracts(){
+  getContracts(dealer){
 
     var tryurl = this.url + '/api/contract/getContracts' 
     return new Promise((resolve, reject) => {

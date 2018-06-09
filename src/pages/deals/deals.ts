@@ -56,7 +56,8 @@ export class DealsPage {
    };
    this.contractService.getContracts(dealer).then((result) => {
                 this.loading.dismiss();
-                this.contracts = result;
+                console.log(result);
+                //this.contracts = result;
                                 }, (err) => {
                 this.loading.dismiss();
                                 });

@@ -23,30 +23,33 @@
          <ion-label>Contract details to be entered below </ion-label>
         </ion-item>
         <ion-item>
-            <ion-input type="number" [(ngModel)]="partynumber" placeholder="Enter party number "></ion-input>
+            <ion-input type="number" [(ngModel)]="partyid" placeholder="Enter party number "></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="text" [(ngModel)]="partyname" placeholder="Enter Party name "></ion-input>
+            <ion-input type="text" [(ngModel)]="userid" placeholder="Enter Party name "></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="number" [(ngModel)]="partypercentage" placeholder="Enter party percentage "></ion-input>
+            <ion-input type="number" [(ngModel)]="percentage" placeholder="Enter party percentage "></ion-input>
         </ion-item>
         <ion-item>
-            <button item-left ion-button color="primary">Save party</button>
-            <button item-right ion-button color="primary">No more parties</button>
+            <button item-left ion-button (click)="saveParty()" color="primary">Save party</button>
+            <button item-right ion-button (click)="nomoreParty()" color="primary">No more parties</button>
         </ion-item>
         <ion-item-divider color="primary">
             List of parties
         </ion-item-divider>
+        <ion-item *ngFor="let party of parties; let i = index ;">
+           Party: {{i }} = {{party.userid}}
+        </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="Deposit address"></ion-input>
+            <ion-input type="text" [(ngModel)]="depositaddress" placeholder="Deposit address"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label> Check if percentages are proper </ion-label>
             <button item-right ion-button color="primary">Validate </button>
         </ion-item>
         <ion-item>
-            <button item-left ion-button>Create contract </button>
+            <button item-left ion-button (click)="createContract()">Create contract </button>
         </ion-item >
    </ion-list>
 
