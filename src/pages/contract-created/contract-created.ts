@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the CouponIssuePage page.
+ * Generated class for the ContractCreatedPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,18 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-contract-issue',
-  templateUrl: 'contract-issue.html',
+  selector: 'page-contract-created',
+  templateUrl: 'contract-created.html',
 })
-export class ContractIssuePage {
-  numberofparties : Number;
+export class ContractCreatedPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-     this.numberofparties = 1;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CouponIssuePage');
+    console.log('ionViewDidLoad ContractCreatedPage');
   }
 
 }

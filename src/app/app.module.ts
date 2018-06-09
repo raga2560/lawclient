@@ -21,8 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ContractIssuePageModule } from '../pages/contract-issue/contract-issue.module';
 import { PartyAdminPageModule } from '../pages/party-admin/party-admin.module';
 import { DealsPageModule } from '../pages/deals/deals.module';
+import { ContractCreatedPageModule } from '../pages/contract-created/contract-created.module';
 import { PartysettingPageModule } from '../pages/partysetting/partysetting.module';
-// import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module';
 
 
 @NgModule({
@@ -40,10 +40,10 @@ import { PartysettingPageModule } from '../pages/partysetting/partysetting.modul
     HomePageModule,
     ListPageModule,
     DealsPageModule,
+    ContractCreatedPageModule,
     PartysettingPageModule,
      ContractIssuePageModule,
      PartyAdminPageModule,
-//     CouponAdminPageModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],

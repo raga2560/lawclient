@@ -13,6 +13,8 @@ export class DealerRegisterPage {
   email: string;
   password: string;
   loading : any;
+  address: any;
+  phone: any;
 
   constructor(public navCtrl: NavController, public authService: Auth, public loadingCtrl: LoadingController) {
 

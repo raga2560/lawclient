@@ -17,29 +17,34 @@
 
   <ion-list  inset padding>
         <ion-item>
-            <p> Create coupon that works with a PIN </p>
+         <ion-label>Contract details to be entered below </ion-label>
         </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="Coupon id"></ion-input>
+            <ion-input type="number" [(ngModel)]="partynumber" placeholder="Enter party number "></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="number" placeholder="Enter PIN "></ion-input>
-            <button item-right ion-button color="primary">Validate</button>
+            <ion-input type="text" [(ngModel)]="partyname" placeholder="Enter Party name "></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="number" placeholder="Enter Amount"></ion-input>
-            <button clear item-right ion-button>Validate</button>
+            <ion-input type="number" [(ngModel)]="partypercentage" placeholder="Enter party percentage "></ion-input>
+            <button item-right ion-button color="primary">Enter parties</button>
         </ion-item>
         <ion-item>
-            <button item-left ion-button>Create coupon </button>
-            <a item-right ion-button  href="">Download coupon </a>
+            <button item-right ion-button color="primary">No more parties</button>
+        </ion-item>
+        <ion-item-divider color="primary">
+            List of parties
+        </ion-item-divider>
+        <ion-item>
+            <ion-input type="text" placeholder="Deposit address"></ion-input>
         </ion-item>
         <ion-item>
-            <button item-left ion-button>Activate </button>
+            <ion-label> Check if percentages are proper </ion-label>
+            <button item-right ion-button color="primary">Validate </button>
         </ion-item>
         <ion-item>
-            <button item-left ion-button>Check balance </button>
-        </ion-item>
+            <button item-left ion-button>Create contract </button>
+        </ion-item >
    </ion-list>
 
 </ion-content>
