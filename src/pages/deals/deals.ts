@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Contract } from '../../providers/contract';
 
 /**
  * Generated class for the DealsPage page.
@@ -15,11 +16,54 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DealsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  numberofparties : Number;
+  contracts: any;
+  contract: any;
+  balance: any;
+  loading: any;
+  contractdata: any;
+  contractid : any;
+
+  constructor(public navCtrl: NavController, public contractService: Contract, 
+              public loadingCtrl: LoadingController,
+              public navParams: NavParams) {
+
+       this.contractid = navParams.data.contractid;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DealsPage');
+    console.log('ionViewDidLoad ContractIssuePage');
   }
 
+  showLoader(){
+
+    this.loading = this.loadingCtrl.create({
+      content: 'Working...'
+    });
+
+    this.loading.present();
+
+  }
+  
+
+  getContracts() {
+    this.showLoader();
+
+   var dealer = {
+        dealerid: this.dealerid;
+   };
+   this.contractService.getContracts(dealer).then((result) => {
+                this.loading.dismiss();
+                this.contracts = result;
+                                }, (err) => {
+                this.loading.dismiss();
+                                });
+  }
+
+  
+  
+
+
+
+  
 }
