@@ -21,6 +21,7 @@ export class ContractCreatedPage {
   contract: any;
   balance: any;
   loading: any;
+  amount: any;
   contractdata: any;
   contractid : any;
 
@@ -67,6 +68,38 @@ export class ContractCreatedPage {
                                 });
   }
 
+
+  deleteContract() {
+    this.showLoader();
+
+   var contractdata = {
+        contractid: this.contractid
+   };
+   this.contractService.deleteContract(contractdata).then((result) => {
+                this.loading.dismiss();
+//                this.contract = result;
+                                        console.log("contract created");
+                                }, (err) => {
+                this.loading.dismiss();
+                                        console.log("not allowed"+ err);
+                                });
+  }
+  executeContract() {
+    var contractdata = {
+       contract: this.contract,
+       amount: this.amount  
+    };
+    this.showLoader();
+
+   this.contractService.executeContract(contractdata).then((result) => {
+                this.loading.dismiss();
+//                this.contract = result;
+                                        console.log("contract created");
+                                }, (err) => {
+                this.loading.dismiss();
+                                        console.log("not allowed"+ err);
+                                });
+  }
   
   
 }

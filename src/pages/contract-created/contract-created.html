@@ -21,7 +21,7 @@
      <div *ngIf="contract != null">
 <ion-item>
    SMS has been sent to parties with PINs.
-   <button item-right ion-button color="primary" > ASK confirmation of receipt </button>
+   <button item-right ion-button color="primary"(click)="askconfirmation()" > ASK confirmation of receipt </button>
 </ion-item>
 <ion-item>
   Contract id: {{contract.contractid}}
@@ -47,6 +47,20 @@
 </ion-item>
 <ion-item>
   If any of the party does not provide the PIN, none of the party can get the funds. The money in returned back to the source.
+</ion-item>
+    <ion-item-divider color="primary">
+            Settlement paid
+        </ion-item-divider>
+<ion-item>
+            <ion-input type="text" [(ngModel)]="amount" placeholder="Enter amount "></ion-input>
+</ion-item>
+
+<ion-item *ngIf="contract.settlementid == ''">
+   <button item-left ion-button color="primary" (click)="deleteContract()"> Delete contract  </button>
+   <button item-right ion-button color="primary" (click)="executeContract()"> Execute contract  </button>
+</ion-item>
+<ion-item *ngIf="contract.settlementid != ''">
+   Transaction settled, txid = {{contract.settlementid }}
 </ion-item>
      </div>
 

@@ -80,14 +80,17 @@ export class Contract {
 
   deleteContract(contractid){
 
-    var tryurl = this.url + '/api/contract/delete/' + contractid;
+    var tryurl = this.url + '/api/contract/delete/' ;
 
   	return new Promise((resolve, reject) => {
 
 	    let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
 	    headers.append('Authorization', this.authService.token);
 
-	    this.http.delete(tryurl, {headers: headers}).subscribe((res) => {
+           this.http.post(tryurl,JSON.stringify(contractdata), {headers: headers})
+          .map(res => res.json())
+          .subscribe(res => {
 	    	resolve(res);
 	    }, (err) => {
 	    	reject(err);
@@ -101,11 +104,12 @@ export class Contract {
   executeContract(contractdata){
     var contractid =1;
 
-    var tryurl = this.url + '/api/contract/execute/' + contractid;
+    var tryurl = this.url + '/api/contract/execute/' ;
 
   	return new Promise((resolve, reject) => {
 
 	    let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
 	    headers.append('Authorization', this.authService.token);
 
            this.http.post(tryurl,JSON.stringify(contractdata), {headers: headers})
