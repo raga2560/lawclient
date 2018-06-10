@@ -22,6 +22,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ContractIssuePageModule } from '../pages/contract-issue/contract-issue.module';
 import { PartyAdminPageModule } from '../pages/party-admin/party-admin.module';
 import { DealsPageModule } from '../pages/deals/deals.module';
+import { PartydealsPageModule } from '../pages/partydeals/partydeals.module';
 import { ContractCreatedPageModule } from '../pages/contract-created/contract-created.module';
 import { PartysettingPageModule } from '../pages/partysetting/partysetting.module';
 
@@ -41,6 +42,7 @@ import { PartysettingPageModule } from '../pages/partysetting/partysetting.modul
     HomePageModule,
     ListPageModule,
     DealsPageModule,
+    PartydealsPageModule,
     ContractCreatedPageModule,
     PartysettingPageModule,
      ContractIssuePageModule,

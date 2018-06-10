@@ -51,7 +51,7 @@
     <ion-item-divider color="primary">
             Settlement paid
         </ion-item-divider>
-<ion-item>
+<ion-item *ngIf="contract.settlementid == ''">
             <ion-input type="text" [(ngModel)]="amount" placeholder="Enter amount "></ion-input>
 </ion-item>
 

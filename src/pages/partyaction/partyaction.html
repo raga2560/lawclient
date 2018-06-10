@@ -1,5 +1,5 @@
 <!--
-  Generated template for the UsersPage page.
+  Generated template for the ContractCreatedPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -9,11 +9,54 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>User action page </ion-title>
+    <ion-title>Party action page </ion-title>
  </ion-navbar>
 </ion-header>
 
 
+
 <ion-content padding>
+     <div *ngIf="contract != null">
+<ion-item>
+  Contract id: {{contract.contractid}}
+</ion-item>
+<ion-item>
+  Deposit Address for contract: {{contract.depositaddress}}
+</ion-item>
+<ion-item>
+  Address to track contract: {{contract.depositaddress}}
+</ion-item>
+
+    <ion-item-divider color="primary">
+            List of parties
+        </ion-item-divider>
+        <ion-item *ngFor="let party of contract.parties; let i = index ;">
+           Party: {{i }} = {{party.userid}}, {{party.percentage}}%
+        </ion-item>
+    <ion-item-divider color="primary">
+            Instruction to parties
+        </ion-item-divider>
+<ion-item>
+  PINs are part of blockchain address. The money in the address can be claimed, if each party provides the PIN correctly.
+</ion-item>
+<ion-item>
+  If any of the party does not provide the PIN, none of the party can get the funds. The money in returned back to the source.
+</ion-item>
+    <ion-item-divider color="primary">
+            Settlement paid
+        </ion-item-divider>
+<ion-item *ngIf="contract.settlementid == ''">
+            <ion-input type="text" [(ngModel)]="partypin" placeholder="Enter PIN "></ion-input>
+</ion-item>
+
+<ion-item *ngIf="contract.settlementid == ''">
+   <button item-right ion-button color="primary" (click)="submitPin()"> Submit PIN for approval  </button>
+</ion-item>
+<ion-item *ngIf="contract.settlementid != ''">
+   Transaction settled, txid = {{contract.settlementid }}
+</ion-item>
+     </div>
+
+
 
 </ion-content>

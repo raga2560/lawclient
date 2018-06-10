@@ -17,7 +17,7 @@ export class PartyAdminPage {
 
   partyactionRoot = 'PartyactionPage'
   partysettingRoot = 'PartysettingPage'
-  transactionsRoot = 'TransactionsPage'
+  partydealsRoot = 'PartydealsPage'
   balancesRoot = 'BalancesPage'
 
 

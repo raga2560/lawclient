@@ -78,7 +78,7 @@ export class Contract {
   }
   
 
-  deleteContract(contractid){
+  deleteContract(contractdata){
 
     var tryurl = this.url + '/api/contract/delete/' ;
 

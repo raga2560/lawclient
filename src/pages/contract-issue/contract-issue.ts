@@ -47,7 +47,7 @@ export class ContractIssuePage {
           percentage: 10,
           pinsent: false,
           pinreceived: false,
-          pinprovided: false
+          pinprovided: ''
       };
       this.parties.push(party);
 
