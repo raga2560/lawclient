@@ -32,7 +32,7 @@ export class PartyactionPage {
        this.contract = null;
        if(typeof this.navParams.data.contract == "undefined")
        {
-	  this.navCtrl.push('partydealsPage');
+	  this.navCtrl.push('PartydealsPage');
        }
        this.contract = this.navParams.data.contract;
   }
@@ -67,7 +67,11 @@ export class PartyactionPage {
                                         console.log("not allowed"+ err);
                                 });
   }
-
+  
+  submitPin()
+  {
+	alert("PIN submitted");
+  }
 
   deleteContract() {
     this.showLoader();

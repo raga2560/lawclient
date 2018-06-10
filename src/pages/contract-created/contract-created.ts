@@ -85,6 +85,9 @@ export class ContractCreatedPage {
                                 });
   }
   executeContract() {
+   
+alert ("Contract executed");
+/*
     var contractdata = {
        contract: this.contract,
        amount: this.amount  
@@ -99,6 +102,7 @@ export class ContractCreatedPage {
                 this.loading.dismiss();
                                         console.log("not allowed"+ err);
                                 });
+*/
   }
   
   
